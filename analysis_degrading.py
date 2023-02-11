@@ -65,12 +65,12 @@ class GetAmountOfSaveResources():
             
         df = pd.json_normalize(sumMap)
         csv = df.to_csv(savePath)
-        return csv
+        return csv, sumMap
     
         
 if __name__=="__main__":
     obj = GetAmountOfSaveResources()
-    res = obj.getSum("./test4.csv", 
+    res, _ = obj.getSum("./test4.csv", 
                     "./test3.csv",
                     "./result.csv"
                     )
