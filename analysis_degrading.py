@@ -1,5 +1,3 @@
-import json
-import csv
 import pandas as pd
 
 class GetAmountOfSaveResources():
@@ -11,13 +9,11 @@ class GetAmountOfSaveResources():
 
     def getCSV(self, filePath: str):
         df = pd.read_csv(filePath)
-        print(df)
         return df
     
     def makeMapFromDF(self, df):
         rows = df.index
         columns = df.columns
-        print(rows)
         map = {}
         for r in rows:
             for c in columns:
@@ -31,7 +27,6 @@ class GetAmountOfSaveResources():
                     print("Error Occurred in DataFrame")
                     return
                 map[r].append(float(df.loc[r, c]))
-        print("Making map finished")
         return map
     
     def calculate(self, map: map, averageResourceMap: map):
